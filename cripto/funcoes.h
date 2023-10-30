@@ -16,7 +16,7 @@ void cadastrar(Criptomoeda* &vetor, int &totalCriptomoedas, int &capacidade) {
             novoVetor[i] = vetor[i];
         }
         
-        delete[] vetor; // Libere a memória do vetor antigo
+        delete[] vetor; 
         vetor = novoVetor; // Aponte o vetor para o novo vetor alocado
     }
 
@@ -68,6 +68,7 @@ void remover(Criptomoeda* vetor, int &totalCriptomoedas) {
         return;
     }
 
+    n
     cout << "REMOVER CRIPTOMOEDA" << endl;
 
     
