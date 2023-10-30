@@ -25,7 +25,7 @@ int main() {
         cout << "5 - Sair" << endl;
         cout << "Opção: ";
         cin >> opcao;
-
+        //- Aplicação dos metodos
         switch (opcao) {
             case 1:
                 cadastrar(vetor, totalCriptomoedas, capacidade);
