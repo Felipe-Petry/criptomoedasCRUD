@@ -11,9 +11,11 @@ void cadastrar(Criptomoeda* &vetor, int &totalCriptomoedas, int &capacidade) {
         // Vetor cheio, aloque mais memória
         capacidade += 1; // Aumente a capacidade em um valor apropriado
         Criptomoeda* novoVetor = new Criptomoeda[capacidade];
+ 
         for (int i = 0; i < totalCriptomoedas; i++) {
             novoVetor[i] = vetor[i];
         }
+        
         delete[] vetor; // Libere a memória do vetor antigo
         vetor = novoVetor; // Aponte o vetor para o novo vetor alocado
     }
@@ -47,6 +49,7 @@ void atualizar(Criptomoeda* vetor, int totalCriptomoedas) {
     cin >> sigla;
     sigla = converterMaiusculas(sigla);
 
+   
     for (int i = 0; i < totalCriptomoedas; i++) {
         if (vetor[i].sigla == sigla) {
             cout << "Novo valor em dolar: ";
@@ -67,6 +70,7 @@ void remover(Criptomoeda* vetor, int &totalCriptomoedas) {
 
     cout << "REMOVER CRIPTOMOEDA" << endl;
 
+    
     string sigla;
     cout << "Informe a sigla da criptomoeda a ser removida: ";
     cin >> sigla;
@@ -92,6 +96,7 @@ void listar(Criptomoeda* vetor, int totalCriptomoedas) {
         return;
     }
 
+    
     cout << "LISTA DE CRIPTOMOEDAS" << endl;
     for (int i = 0; i < totalCriptomoedas; i++) {
         cout << "Nome: " << vetor[i].nome << ", Sigla: " << vetor[i].sigla << ", Valor em dolar: " << "U$" << vetor[i].valorDolar << endl;
@@ -117,6 +122,7 @@ void salvarCriptomoedas(const Criptomoeda* vetor, int totalCriptomoedas) {
 void carregarCriptomoedas(Criptomoeda* &vetor, int &totalCriptomoedas, int &capacidade) {
     ifstream arquivoCripto("cripto.csv");
 
+    
     if (arquivoCripto.is_open()) {
         totalCriptomoedas = 0;
         string linha;
