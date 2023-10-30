@@ -8,8 +8,8 @@ string converterMaiusculas(string texto) {
 
 void cadastrar(Criptomoeda* &vetor, int &totalCriptomoedas, int &capacidade) {
     if (totalCriptomoedas >= capacidade) {
-        // Vetor cheio, aloque mais memória
-        capacidade += 1; // Aumente a capacidade em um valor apropriado
+        // -Vetor cheio, aloque mais memória
+        capacidade += 1; //-Aumente a capacidade em um valor apropriado
         Criptomoeda* novoVetor = new Criptomoeda[capacidade];
  
         for (int i = 0; i < totalCriptomoedas; i++) {
@@ -17,7 +17,7 @@ void cadastrar(Criptomoeda* &vetor, int &totalCriptomoedas, int &capacidade) {
         }
         
         delete[] vetor; 
-        vetor = novoVetor; // Aponte o vetor para o novo vetor alocado
+        vetor = novoVetor; //- Aponte o vetor para o novo vetor alocado
     }
 
     cout << "CADASTRAR CRIPTOMOEDA" << endl;
@@ -104,7 +104,7 @@ void listar(Criptomoeda* vetor, int totalCriptomoedas) {
     }
 }
 
-// Função para salvar as criptomoedas em um arquivo "cripto.csv"
+//- Função para salvar as criptomoedas em um arquivo "cripto.csv"
 void salvarCriptomoedas(const Criptomoeda* vetor, int totalCriptomoedas) {
     ofstream arquivoCripto("cripto.csv");
 
@@ -119,7 +119,7 @@ void salvarCriptomoedas(const Criptomoeda* vetor, int totalCriptomoedas) {
     }
 }
 
-// Função para carregar as criptomoedas de um arquivo "cripto.csv"
+//- Função para carregar as criptomoedas de um arquivo "cripto.csv"
 void carregarCriptomoedas(Criptomoeda* &vetor, int &totalCriptomoedas, int &capacidade) {
     ifstream arquivoCripto("cripto.csv");
 
@@ -132,14 +132,14 @@ void carregarCriptomoedas(Criptomoeda* &vetor, int &totalCriptomoedas, int &capa
             size_t pos = linha.find(",");
             if (pos != string::npos) {
                 if (totalCriptomoedas >= capacidade) {
-                    // Vetor cheio, aloque mais memória
-                    capacidade += 1; // Aumente a capacidade em um valor apropriado
+                    // -Vetor cheio, aloque mais memória
+                    capacidade += 1; // -Aumente a capacidade em um valor apropriado
                     Criptomoeda* novoVetor = new Criptomoeda[capacidade];
                     for (int i = 0; i < totalCriptomoedas; i++) {
                         novoVetor[i] = vetor[i];
                     }
-                    delete[] vetor; // Libere a memória do vetor antigo
-                    vetor = novoVetor; // Aponte o vetor para o novo vetor alocado
+                    delete[] vetor; // -Libere a memória do vetor antigo
+                    vetor = novoVetor; // -Aponte o vetor para o novo vetor alocado
                 }
                 vetor[totalCriptomoedas].nome = linha.substr(0, pos);
                 linha = linha.substr(pos + 1);
